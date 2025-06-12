@@ -87,8 +87,8 @@ class StoreClient(object):
 
     def buyProduct(self, appId, appVer='', productType='C', pricingParameters='STDQ'):
         # STDQ - buy, STDRDL - redownload, SWUPD - update
-        url = "https://p25-buy.itunes.apple.com/WebObjects/MZBuy.woa/wa/buyProduct"
-        
+        url = "https://p25-buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/buyProduct"
+
         itunes_internal = self.iTunes_provider(url)
         hdrs = itunes_internal.pop('headers')
         guid = itunes_internal.pop('guid')
@@ -130,7 +130,7 @@ class StoreClient(object):
         return resp
 
     def buyProduct_purchase(self, appId, productType='C'):
-        url = "https://buy.itunes.apple.com/WebObjects/MZBuy.woa/wa/buyProduct"
+        url = "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/buyProduct"
         req = StoreBuyproductReq(
             guid=self.guid,
             salableAdamId=str(appId),
@@ -149,7 +149,7 @@ class StoreClient(object):
         r = self.sess.post(url,
                            headers={
                                "Content-Type": "application/x-apple-plist",
-                               "User-Agent": "Configurator/2.15 (Macintosh; OS X 11.0.0; 16G29) AppleWebKit/2603.3.8",
+                               "User-Agent": "Configurator/2.17 (Macintosh; OS X 15.2; 24C5089c) AppleWebKit/0620.1.16.11.6",
                            },
                            data=plistlib.dumps(payload))
 
