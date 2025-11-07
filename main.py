@@ -368,7 +368,7 @@ class IPATool(object):
                 self.handlePurchase(args)
                 args.purchase = False
 
-            downResp = Store.download(self.appId, '', isRedownload=not args.purchase)
+            downResp = Store.download(self.appId, None, isRedownload=not args.purchase)
             logger.debug('Got download info: %s', downResp)
             if args.purchase:
                 # We have already successfully purchased, so don't purchase again :)
