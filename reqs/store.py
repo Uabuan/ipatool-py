@@ -158,8 +158,8 @@ class StoreClient(object):
 
     def buyProduct(self, appId, appVer='', productType='C', pricingParameters='STDQ'):
         # STDQ - buy, STDRDL - redownload, SWUPD - update
-        url = "https://p25-buy.itunes.apple.com/WebObjects/MZBuy.woa/wa/buyProduct"
-        
+        url = "https://p25-buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/buyProduct"
+
         itunes_internal = self.iTunes_provider(url)
         hdrs = itunes_internal.pop('headers')
         guid = itunes_internal.pop('guid')
@@ -207,7 +207,7 @@ class StoreClient(object):
         return resp
 
     def buyProduct_purchase(self, appId, productType='C'):
-        url = "https://buy.itunes.apple.com/WebObjects/MZBuy.woa/wa/buyProduct"
+        url = "https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/buyProduct"
         req = StoreBuyproductReq(
             guid=self.authInfo.guid,
             salableAdamId=str(appId),
